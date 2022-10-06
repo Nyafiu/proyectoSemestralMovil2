@@ -1,9 +1,32 @@
 
-/* Login Header */
-h1{
-    padding: 10px;
-    text-align: center;
-    font-size: 2.5rem;
+/* Login Header Ionic CSS with dark mode */
+
+ion-card-title {
+    margin-top: 10px;
+    font-size: 2rem;
     font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
 
 }
+
+
+
+
+
+ion-card{
+    margin: 0 auto;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+ion-button{
+    margin: 0 auto;
+    width: 50%;
+    max-width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
