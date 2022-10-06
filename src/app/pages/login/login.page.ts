@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,11 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private toastCtrl: ToastController, private router:Router) { }
+  constructor(private toastCtrl: ToastController, private router:Router, private menuCtrl:MenuController) { }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
 
   pageTitle = 'Login';
   isNotHome = false;
@@ -17,6 +21,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
 
   user:any = [
   {
