@@ -9,11 +9,8 @@ import { MenuController, ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private toastCtrl: ToastController, private router:Router, private menuCtrl:MenuController) { }
+  constructor(private toastCtrl: ToastController, private router:Router) { }
 
-  ionViewWillEnter() {
-    this.menuCtrl.enable(false);
-  }
 
   pageTitle = 'Login';
   isNotHome = false;
@@ -46,8 +43,8 @@ export class LoginPage implements OnInit {
     }
   }
 
-  validateModel (model: any) {
-    for(var[key,value] of Object.entries(model)){
+  validateModel (user: any) {
+    for(var[key,value] of Object.entries(user)){
       if(value == ''){
         this.field = key;
         return false;
