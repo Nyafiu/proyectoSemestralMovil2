@@ -37,7 +37,6 @@ export class LoginPage implements OnInit {
     await this.loading.present();
   }
 
-
   user:any = 
   {
     email:'',
