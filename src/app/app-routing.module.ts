@@ -37,9 +37,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
   },
   {
+    path: 'conversor',
+    loadChildren: () => import('./pages/conversor/conversor.module').then( m => m.ConversorPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'page404'
   }
+
 ];
 
 @NgModule({
