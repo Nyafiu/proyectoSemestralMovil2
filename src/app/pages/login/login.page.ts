@@ -20,45 +20,40 @@ export class LoginPage implements OnInit {
   }
 
 
-  user:any = [
+  user:any = 
   {
-    email:'user@gmail.com',
-    password:'user'
-  },
-  {
-    email:'admin@gmail.com',
-    password:'admin'
+    email:'',
+    password:''
   }
-  ]
+  
 
   field:string = '';
 
   login(){
-    if(this.validateModel(this.user)){
+    if(this.validarModelo(this.user)){
       this.presentToast('Bienvenido ' + this.user.email);
       this.router.navigate(['/home']);
     }
-    else{
-      this.presentToast('Debes ingresar: ' + this.field);
-    }
+    this.presentToast('Debes ingresar: ' + this.field)
   }
 
-  validateModel (user: any) {
-    for(var[key,value] of Object.entries(user)){
+  validarModelo(model:any){
+    for(var[key,value] of Object.entries(model)){
       if(value == ''){
         this.field = key;
         return false;
       }
     }
     return true;
-  
   }
-  
-  async presentToast(messaje:string, duration?:number){
+
+  async presentToast(message:string, duration?:number) {
     const toast = await this.toastCtrl.create({
-      message: messaje,
-      duration: duration?duration:2000
+      message: message,
+      duration: duration?duration:2000,
+      position: 'bottom'
     });
-    toast.present();
+    await toast.present();
   }
+
 }
