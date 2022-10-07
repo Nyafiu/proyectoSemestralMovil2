@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class AboutPage implements OnInit {
 
   pageTitle = 'About';
-  isNotHome = true;
 
   constructor() { }
 
