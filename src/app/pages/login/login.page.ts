@@ -56,6 +56,8 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/home']);
     }
     this.presentToast('Debes ingresar: ' + this.field)
+    this.user.email=''
+    this.user.password=''
   }
 
   validarModelo(model:any){
