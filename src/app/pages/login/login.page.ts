@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController, ToastController } from '@ionic/angular';
+import { LoadingController, MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +9,32 @@ import { MenuController, ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private toastCtrl: ToastController, private router:Router) { }
+  constructor(private toastCtrl: ToastController, private router:Router, private loadingCtrl:LoadingController) { }
 
 
   pageTitle = 'Login';
   isNotHome = false;
   sideMenu = false;
+  loading: HTMLIonLoadingElement;
 
   ngOnInit() {
+    this.cargarLoading('Bienvenido');
+    console.log('ngOnInit');
+  }
+
+  cargarLoading(message:string){
+    this.presentLoading('<img src="../../../assets/img/logo1.png">');
+
+    setTimeout(() => {
+      this.loading.dismiss();
+    }, 2000);
+  }
+
+  async presentLoading(message:string){
+    this.loading = await this.loadingCtrl.create({
+      message,
+    });
+    await this.loading.present();
   }
 
 
