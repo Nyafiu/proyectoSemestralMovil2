@@ -1,4 +1,11 @@
-<app-header [pageTitle]="pageTitle" [isNotHome]="isNotHome"></app-header>
+<ion-header [pageTitle]="pageTitle" [isNotHome]="isNotHome">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ pageTitle }}</ion-title>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content>
 
@@ -6,7 +13,7 @@
         <ion-slide>
             <div>
                 <img src="../../../assets/img/840_560.jpeg">
-                <h1 class="fuente" style="font-size: 2.5em;">Michael Scott</h1>
+                <h1 class="fuente" style="font-size: 2.5em;">Patricio Infante</h1>
                 <h5 class="fuente" style="font-size: 1.5em;">Ingeniería en Informática</h5>
                 <h3 class="fuente" style="padding: 0.5em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto provident 
                     cum animi? Explicabo neque corrupti beatae quod sit vitae, consequatur officia fugiat ut 
@@ -14,43 +21,24 @@
             </div>
         </ion-slide>
         <ion-slide>
-            <ion-card>
-                <img src="../../../assets/img/840_560.jpeg">
-                <ion-card-header class="fuente">
-                    <ion-card-subtitle class="ion-text-capitalize" style="font-size: 1.5em;">Ingeniería en Informática</ion-card-subtitle>
-                    <ion-card-title style="font-size: 3em;">Michael Scott</ion-card-title>
-                </ion-card-header>
-                <ion-card-content class="fuente">
-                    Keep close to Nature's heart... and break clear away, once in awhile,
-                    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-                </ion-card-content>
-              </ion-card>
+          <div>
+            <img src="../../../assets/img/840_560.jpeg">
+            <h1 class="fuente" style="font-size: 2.5em;">Matías González</h1>
+            <h5 class="fuente" style="font-size: 1.5em;">Ingeniería en Informática</h5>
+            <h3 class="fuente" style="padding: 0.5em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto provident 
+                cum animi? Explicabo neque corrupti beatae quod sit vitae, consequatur officia fugiat ut 
+                libero cumque molestias dolorum.</h3><br>
+          </div>
         </ion-slide>
         <ion-slide>
-            <ion-card>
-                <img src="../../../assets/img/840_560.jpeg">
-                <ion-card-header>
-                  <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                  <ion-card-title>Card Title</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                  Keep close to Nature's heart... and break clear away, once in awhile,
-                  and climb a mountain or spend a week in the woods. Wash your spirit clean.
-                </ion-card-content>
-              </ion-card>
-        </ion-slide>
-        <ion-slide>
-            <ion-card>
-                <img src="../../../assets/img/840_560.jpeg">
-                <ion-card-header>
-                  <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                  <ion-card-title>Card Title</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                  Keep close to Nature's heart... and break clear away, once in awhile,
-                  and climb a mountain or spend a week in the woods. Wash your spirit clean.
-                </ion-card-content>
-              </ion-card>
+          <div>
+            <img src="../../../assets/img/840_560.jpeg">
+            <h1 class="fuente" style="font-size: 2.5em;">María Jesús Badilla</h1>
+            <h5 class="fuente" style="font-size: 1.5em;">Ingeniería en Informática</h5>
+            <h3 class="fuente" style="padding: 0.5em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto provident 
+                cum animi? Explicabo neque corrupti beatae quod sit vitae, consequatur officia fugiat ut 
+                libero cumque molestias dolorum.</h3><br>
+          </div>
         </ion-slide>
     </ion-slides>
     
