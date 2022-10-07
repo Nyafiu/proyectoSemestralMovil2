@@ -9,7 +9,11 @@ import { LoadingController, MenuController, ToastController } from '@ionic/angul
 })
 export class LoginPage implements OnInit {
 
-  constructor(private toastCtrl: ToastController, private router:Router, private loadingCtrl:LoadingController) { }
+  constructor(
+    private toastCtrl: ToastController,
+    private router:Router, 
+    private loadingCtrl:LoadingController
+    ) { }
 
 
   pageTitle = 'Login';
@@ -62,6 +66,7 @@ export class LoginPage implements OnInit {
         return false;
       }
     }
+    this.showLoading();
     return true;
   }
 
@@ -73,5 +78,15 @@ export class LoginPage implements OnInit {
     });
     await toast.present();
   }
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Iniciando Sesion...',
+      duration: 1000,
+    });
+
+    loading.present();
+  }
+
 
 }
