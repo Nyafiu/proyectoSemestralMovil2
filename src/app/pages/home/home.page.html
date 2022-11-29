@@ -6,24 +6,33 @@
       <ion-title>{{ pageTitle }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content [fullscreen]="true">
     <ion-header collapse="condense">
       <ion-toolbar>
         <ion-title size="large">{{ pageTitle }}</ion-title>
       </ion-toolbar>
     </ion-header>
-  
+
 
     <ion-card>
         <ion-card-header>
           <ion-card-subtitle><h1 style="text-align: center;">Bienvenido usuario</h1></ion-card-subtitle>
+          <ion-item>
+            <p>Clima Actual</p>
+          </ion-item>
+          <ion-item>
+            <span>
+              {{(weatherTemp?.temp - 273.15) | number:'1.0-0'}}°C
+            </span>
+            <ion-icon name="location"></ion-icon>
+            <span>{{cityName}}</span>
+          </ion-item>
           <ion-card-title><img src="../../../assets/img/auto.png" alt=""></ion-card-title>
         </ion-card-header>
-      
+
         <ion-card-content>
             En construcción...
         </ion-card-content>
     </ion-card>
   </ion-content>
-  
