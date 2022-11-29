@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, MenuController, ToastController } from '@ionic/angular';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginPage implements OnInit {
   constructor(
     private toastCtrl: ToastController,
     private router:Router, 
-    private loadingCtrl:LoadingController
+    private loadingCtrl:LoadingController,
+    private userService: UserService,
     ) { }
 
 
@@ -87,5 +89,12 @@ export class LoginPage implements OnInit {
     loading.present();
   }
 
+  onSubmit(){
+    this.userService.login(this.user).then(res => {
+      this.router.navigate(['/home']);
+    }).catch(err => {
+      this.presentToast(err.message);
+    });
+  }
 
 }

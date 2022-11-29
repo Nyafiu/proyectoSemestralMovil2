@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CanActivate } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -41,9 +42,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/conversor/conversor.module').then( m => m.ConversorPageModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'page404'
-  }
+  },
 
 ];
 
