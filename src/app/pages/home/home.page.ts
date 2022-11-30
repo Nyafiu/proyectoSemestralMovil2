@@ -22,10 +22,11 @@ export class HomePage {
 
   weatherTemp: any;
   cityName: any;
-  userService: UserService;
-  router: Router;
   
-    constructor(public httpClient: HttpClient) {
+    constructor(
+      public httpClient: HttpClient,
+      private userService: UserService,
+      private router: Router) {
       this.loadData();
     }
 
@@ -38,7 +39,7 @@ export class HomePage {
       });
   }
 
-  async logout(){
+  async logOut(){
     await this.userService.logOut();
     this.router.navigateByUrl('/',{replaceUrl:true})
   } 
