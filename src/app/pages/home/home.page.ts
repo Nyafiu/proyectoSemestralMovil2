@@ -22,8 +22,11 @@ export class HomePage {
 
   weatherTemp: any;
   cityName: any;
-  indices: any;
-  
+  valordolar: any;
+  valoreuro: any;
+  pesos = 0;
+  resultado = 0;
+
     constructor(public httpClient: HttpClient,
       private userService: UserService,
       private router: Router) {
@@ -39,7 +42,8 @@ export class HomePage {
     });
     this.httpClient.get('https://mindicador.cl/api').subscribe((respuesta) => {
       console.log(respuesta);
-      this.indices = respuesta['dolar'];
+      this.valordolar = respuesta['dolar'];
+      this.valoreuro = respuesta['euro'];
     });
   }
 
@@ -47,4 +51,10 @@ export class HomePage {
     await this.userService.logOut();
     this.router.navigateByUrl('/', {replaceUrl: true});
   }
+
+  convertir(){
+    this.resultado = this.pesos / this.valordolar.valor;
+    return this.resultado;
+  }
+
 }
