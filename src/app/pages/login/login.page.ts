@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, MenuController, ToastController } from '@ionic/angular';
 import { UserService } from 'src/app/services/user.service';
@@ -10,7 +11,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginPage implements OnInit {
 
+  form!: FormGroup;
+
   constructor(
+    private formBuilder: FormBuilder,
     private toastCtrl: ToastController,
     private router:Router, 
     private loadingCtrl:LoadingController,
@@ -18,14 +22,13 @@ export class LoginPage implements OnInit {
     ) { }
 
 
-  pageTitle = 'Login';
-  isNotHome = false;
   sideMenu = false;
   loading: HTMLIonLoadingElement;
 
   ngOnInit() {
     this.cargarLoading('Bienvenido');
     console.log('ngOnInit');
+    this.createForm();
   }
 
   cargarLoading(message:string){
@@ -43,34 +46,39 @@ export class LoginPage implements OnInit {
     await this.loading.present();
   }
 
-  user:any = 
-  {
-    email:'',
-    password:''
-  }
-  
+  // metodos profe
 
-  field:string = '';
-
-  login(){
-    if(this.validarModelo(this.user)){
-      this.presentToast('Bienvenido ' + this.user.email);
-      this.router.navigate(['/home']);
-    }
-    this.presentToast('Debes ingresar: ' + this.field)
-    this.user.email=''
-    this.user.password=''
+  createForm(){
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  validarModelo(model:any){
-    for(var[key,value] of Object.entries(model)){
-      if(value == ''){
-        this.field = key;
-        return false;
-      }
+  async login(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    const user = await this.userService.login(this.form.value.email, this.form.value.password);
+    await loading.dismiss();
+
+    if(user){
+      this.router.navigateByUrl('/home', { replaceUrl: true });
+    } else {
+      this.presentToast('Usuario o contraseña incorrectos');
     }
-    this.showLoading();
-    return true;
+  }
+
+  async register(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    const user = await this.userService.register(this.form.value.email, this.form.value.password);
+    await loading.dismiss();
+
+    if(user){
+      this.router.navigateByUrl('/home', { replaceUrl: true });
+    } else {
+      this.presentToast('Falló el registro. Intente nuevamente');
+    }
   }
 
   async presentToast(message:string, duration?:number) {
@@ -89,14 +97,6 @@ export class LoginPage implements OnInit {
     });
 
     loading.present();
-  }
-
-  onSubmit(){
-    this.userService.login(this.user).then(res => {
-      this.router.navigate(['/home']);
-    }).catch(err => {
-      this.presentToast(err.message);
-    });
   }
 
 }

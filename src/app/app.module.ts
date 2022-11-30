@@ -8,15 +8,31 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { Capacitor } from '@capacitor/core';
+import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
-    provideAuth(() => getAuth()),
+    ReactiveFormsModule, FormsModule,
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    ],
+    provideAuth(() => {
+      if(Capacitor.isNativePlatform()){
+        return initializeAuth(getApp(), {
+          persistence: indexedDBLocalPersistence,
+        });
+      }else{
+        return getAuth();
+      }
+    }),
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
