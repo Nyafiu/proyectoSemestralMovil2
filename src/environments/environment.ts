@@ -4,7 +4,16 @@
 export const environment = {
   production: false,
   apiKey :'92d1dc796e62e6eb57c47ed68cd9fb6e',
-  apiUrl: 'https://api.openweathermap.org/data/2.5/'
+  apiUrl: 'https://api.openweathermap.org/data/2.5/',
+  firebase: {
+    apiKey: "AIzaSyCQkjSuYmLaG8dNReLbo9O8h3U7_gACGpk",
+    authDomain: "fleet-joy-367613.firebaseapp.com",
+    projectId: "fleet-joy-367613",
+    storageBucket: "fleet-joy-367613.appspot.com",
+    messagingSenderId: "549487548469",
+    appId: "1:549487548469:web:e166b1039eb2ec133ff97c",
+    measurementId: "G-ES1FQMC81X"
+  }
 };
 
 /*
