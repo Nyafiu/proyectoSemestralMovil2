@@ -22,26 +22,28 @@ export class HomePage {
 
   weatherTemp: any;
   cityName: any;
+  userService: UserService;
+  router: Router;
   
-    constructor(
-      public httpClient: HttpClient,
-      private userService: UserService,
-      private router: Router) {
+    constructor(public httpClient: HttpClient) {
       this.loadData();
     }
 
-    loadData(){
-      this.httpClient.get(`${API_URL}/weather?q=${'Santiago'}&appid=${API_KEY}`).subscribe(results => {
-        console.log(results);
-        this.weatherTemp = results['main'];
-        this.cityName = results['name'];
-        console.log(this.weatherTemp);
-      });
+  loadData() {
+    this.httpClient.get(`${API_URL}/weather?q=${'Santiago'}&appid=${API_KEY}`).subscribe(results => {
+      console.log(results);
+      this.weatherTemp = results['main'];
+      this.cityName = results['name'];
+      console.log(this.weatherTemp);
+    });
+    this.httpClient.get('https://mindicador.cl/api').subscribe((respuesta) => {
+      console.log(respuesta);
+      this.indices = respuesta['dolar'];
+    });
   }
 
-  async logOut(){
+  async logout(){
     await this.userService.logOut();
-    this.router.navigateByUrl('/',{replaceUrl:true})
-  } 
-
+    this.router.navigateByUrl('/', {replaceUrl: true});
+  }
 }
