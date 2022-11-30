@@ -62,22 +62,10 @@ export class LoginPage implements OnInit {
     await loading.dismiss();
 
     if(user){
+      this.showLoading();
       this.router.navigateByUrl('/home', { replaceUrl: true });
     } else {
       this.presentToast('Usuario o contraseña incorrectos');
-    }
-  }
-
-  async register(){
-    const loading = await this.loadingCtrl.create();
-    await loading.present();
-    const user = await this.userService.register(this.form.value.email, this.form.value.password);
-    await loading.dismiss();
-
-    if(user){
-      this.router.navigateByUrl('/login', { replaceUrl: true });
-    } else {
-      this.presentToast('Falló el registro. Intente nuevamente');
     }
   }
 
@@ -92,7 +80,7 @@ export class LoginPage implements OnInit {
 
   async showLoading() {
     const loading = await this.loadingCtrl.create({
-      message: 'Iniciando Sesion...',
+      message: 'Iniciando Sesión...',
       duration: 1000,
     });
 
