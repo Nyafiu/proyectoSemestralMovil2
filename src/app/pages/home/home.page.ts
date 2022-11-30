@@ -22,10 +22,11 @@ export class HomePage {
 
   weatherTemp: any;
   cityName: any;
-  userService: UserService;
-  router: Router;
+  indices: any;
   
-    constructor(public httpClient: HttpClient) {
+    constructor(public httpClient: HttpClient,
+      private userService: UserService,
+      private router: Router) {
       this.loadData();
     }
 
