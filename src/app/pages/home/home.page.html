@@ -13,7 +13,7 @@
   </ion-header>
 
   <ion-content [fullscreen]="true">
-  
+
     <ion-card>
         <ion-card-header>
           <ion-card-subtitle><h1 style="text-align: center;">Bienvenido usuario!</h1></ion-card-subtitle>
@@ -26,6 +26,11 @@
             </span>
             <ion-icon name="location"></ion-icon>
             <span>{{cityName}}</span>
+          </ion-item>
+          <ion-item>
+            <span>
+    <p>El dolar actual es: ${{indices?.valor}}</p>
+            </span>
           </ion-item>
           <ion-card-title><img src="../../../assets/img/auto.png" alt=""></ion-card-title>
         </ion-card-header>
