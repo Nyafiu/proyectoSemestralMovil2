@@ -40,7 +40,7 @@ export class RegisterPage implements OnInit {
     await loading.dismiss();
 
     if(user){
-      this.router.navigateByUrl('/home', { replaceUrl: true });
+      this.router.navigateByUrl('/login', { replaceUrl: true });
     } else {
       this.presentToast('Falló el registro. Intente nuevamente');
     }

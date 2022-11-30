@@ -45,11 +45,12 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: '**',
-    redirectTo: 'page404'
-  },  {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'page404'
   },
 
 
