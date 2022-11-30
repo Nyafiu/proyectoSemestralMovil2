@@ -14,8 +14,7 @@ import { UserService } from 'src/app/services/user.service';
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterPageRoutingModule,
-    UserService
+    RegisterPageRoutingModule
   ],
   declarations: [RegisterPage]
 })
