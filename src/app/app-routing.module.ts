@@ -49,9 +49,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
+    path: 'formulario',
+    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
+  },
+
+  {
     path: '**',
     redirectTo: 'page404'
-  },
+  }
 
 
 ];
