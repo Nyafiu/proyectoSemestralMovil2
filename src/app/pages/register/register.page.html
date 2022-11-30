@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formReg" (ngSubmit)="register()">
+    <ion-card>
+      <ion-card-title color="primary" class="ion-text-center">
+        <ion-label>
+          <h1>Registro</h1>
+        </ion-label>
+      </ion-card-title >
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input  type="email"
+                      placeholder="correo@correo.com"
+                      formControlName="email"
+                      require></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input  type="password"
+                      placeholder="********"
+                      formControlName="password"
+                      require></ion-input>
+        </ion-item>
+      </ion-card-content>
+      <ion-button color="success" shape="block" (click)="onSubmit()">Login</ion-button>
+      
+  </form>
+
+</ion-content>
