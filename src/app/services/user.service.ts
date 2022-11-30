@@ -14,7 +14,7 @@ export class UserService {
       const user = await createUserWithEmailAndPassword(this.auth, email, password);
       return user;
     } catch (error) {
-      console.log(error);
+      return null;
     }
   }
 
@@ -23,7 +23,7 @@ export class UserService {
       const user = await signInWithEmailAndPassword(this.auth, email, password);
       return user;
     } catch (error) {
-      console.log(error);
+      return null;
     }
   }
 
