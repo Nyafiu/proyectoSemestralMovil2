@@ -1,4 +1,9 @@
 <ion-header>
+  <ion-buttons slot="start">
+    <ion-menu-button>
+      
+    </ion-menu-button>
+  </ion-buttons>
   <ion-toolbar>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
@@ -12,7 +17,7 @@
         <ion-label>
           <h1>Registro</h1>
         </ion-label>
-      </ion-card-title >
+      </ion-card-title>
       <ion-card-content>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
@@ -28,9 +33,12 @@
                       formControlName="password"
                       require></ion-input>
         </ion-item>
+
       </ion-card-content>
-      <ion-button color="success" shape="block" (click)="onSubmit()">Login</ion-button>
+
+      <ion-button color="success" shape="block" (click)="register()">Registro</ion-button>
       
+    </ion-card>
   </form>
 
 </ion-content>

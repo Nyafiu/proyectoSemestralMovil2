@@ -40,7 +40,9 @@ export class RegisterPage implements OnInit {
     await loading.dismiss();
 
     if(user){
-      this.router.navigateByUrl('/home', { replaceUrl: true });
+      this.presentToast('Usuario registrado correctamente');
+      this.showLoading();
+      this.router.navigateByUrl('/login', { replaceUrl: true });
     } else {
       this.presentToast('Falló el registro. Intente nuevamente');
     }
@@ -53,6 +55,16 @@ export class RegisterPage implements OnInit {
       position: 'bottom'
     });
     await toast.present();
+    
+  }
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Registrando usuario e ingresando...',
+      duration: 2000,
+    });
+
+    loading.present();
   }
 
 }
