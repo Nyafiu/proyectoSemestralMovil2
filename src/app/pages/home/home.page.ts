@@ -4,6 +4,8 @@
 import { Component } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 const API_URL = environment.apiUrl;
 const API_KEY = environment.apiKey;
@@ -20,6 +22,9 @@ export class HomePage {
 
   weatherTemp: any;
   cityName: any;
+  userService: UserService;
+  router: Router;
+  
     constructor(public httpClient: HttpClient) {
       this.loadData();
     }
@@ -32,4 +37,10 @@ export class HomePage {
         console.log(this.weatherTemp);
       });
   }
+
+  async logout(){
+    await this.userService.logOut();
+    this.router.navigateByUrl('/',{replaceUrl:true})
+  } 
+
 }
