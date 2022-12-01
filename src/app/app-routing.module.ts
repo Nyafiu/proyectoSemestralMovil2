@@ -50,7 +50,8 @@ const routes: Routes = [
   },
   {
     path: 'formulario',
-    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
+    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
 
   {

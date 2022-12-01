@@ -15,33 +15,35 @@
   <ion-content [fullscreen]="true">
 
     <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle><h1 style="text-align: center;">Bienvenido usuario!</h1></ion-card-subtitle>
-          <ion-item>
-            <p>Clima Actual</p>
-          </ion-item>
-          <ion-item>
-            <span>
-              {{(weatherTemp?.temp - 273.15) | number:'1.0-0'}}°C
-            </span>
-            <ion-icon name="location"></ion-icon>
-            <span>{{cityName}}</span>
-          </ion-item>
-          <ion-item>
-            <span>
-    <p>El dolar actual es: ${{valordolar?.valor}}</p>
-            </span>
-          </ion-item>
-          <ion-item>
-            <span>
-              <p>El euro actual es: €{{valoreuro?.valor}}</p>
-            </span>
-          </ion-item>
-          <ion-card-title><img src="../../../assets/img/auto.png" alt=""></ion-card-title>
-        </ion-card-header>
 
-        <ion-card-content>
-            En construcción...
-        </ion-card-content>
+      <ion-card-title>
+        <ion-label>
+          <h1>¡Bienvenido!</h1>
+        </ion-label>
+      </ion-card-title>
+      <ion-card-content>
+        <ion-item>
+          <p class="fuente">Clima Actual</p>
+        </ion-item>
+        <ion-item>
+          <span class="fuente">
+            {{(weatherTemp?.temp - 273.15) | number:'1.0-0'}}°C
+          </span>
+          <ion-icon name="location"></ion-icon>
+          <span class="fuente">{{cityName}}</span>
+        </ion-item>
+        <ion-item>
+          <span>
+            <p class="fuente">El dolar actual es: ${{valordolar?.valor}}</p>
+          </span>
+        </ion-item>
+        <ion-item>
+          <span>
+            <p class="fuente">El euro actual es: €{{valoreuro?.valor}}</p>
+          </span>
+        </ion-item>
+        <ion-card-title><img src="../../../assets/img/auto.png" alt=""></ion-card-title>
+      </ion-card-content>
     </ion-card>
+    
   </ion-content>

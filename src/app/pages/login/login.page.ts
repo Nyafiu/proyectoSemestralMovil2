@@ -46,8 +46,6 @@ export class LoginPage implements OnInit {
     await this.loading.present();
   }
 
-  // metodos profe
-
   createForm(){
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],

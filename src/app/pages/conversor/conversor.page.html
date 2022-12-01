@@ -12,26 +12,31 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Conversor de Monedas</ion-card-subtitle>
-      <ion-card-title>Pesos Chilenos -> Dolares / Euros</ion-card-title>
+      <ion-card-subtitle class="title">Conversor de Monedas</ion-card-subtitle>
+      <ion-card-title class="cuerpo" style="font-size: 1.9em;">Pesos Chilenos -> Dolares / Euros</ion-card-title>
     </ion-card-header>
 
     <ion-item>
             <!--Convertidor de Monedas de Pesos Chilenos a Dolar con Mindicador.cl-->
 
-            <ion-label position="stacked" class="ion-padding-bottom">Convertidor de Pesos Chilenos a Dolar</ion-label>
-            <ion-input type="number" [(ngModel)]="pesos"></ion-input>
-            <ion-button (click)="convertirdolar()">Convertir</ion-button>
-            <ion-label position="stacked">Resultado: ${{resultado}}</ion-label>
+            <ion-label position="stacked" class="ion-padding-bottom cuerpo" style="font-size: 1.4em;">Convertidor de Pesos Chilenos a Dolar</ion-label>
+            <ion-input type="number" [(ngModel)]="pesos" class="cuerpo" style="font-size: 2em;">$</ion-input>
+            <ion-button color="success" 
+                        (click)="convertirdolar()" 
+                        class="cuerpo">Convertir</ion-button>
+            <ion-label position="stacked"
+                       class="cuerpo">Resultado: ${{resultado}}</ion-label>
       <hr>
           </ion-item>
         </ion-card>
     <ion-card>
           <ion-item>
-          <ion-label position="stacked">Convertidor de Pesos Chilenos a Euro</ion-label>
-            <ion-input type="number" [(ngModel)]="pesos"></ion-input>
-            <ion-button (click)="convertireuro()">Convertir</ion-button>
-            <ion-label position="stacked">Resultado: €{{resultado}}</ion-label>
+          <ion-label position="stacked" class="cuerpo" style="font-size: 1.4em;">Convertidor de Pesos Chilenos a Euro</ion-label>
+            <ion-input type="number" [(ngModel)]="pesos" class="cuerpo" style="font-size: 2em;">$</ion-input>
+            <ion-button color="success" 
+                        (click)="convertireuro()"
+                        class="cuerpo">Convertir</ion-button>
+            <ion-label position="stacked" class="cuerpo">Resultado: €{{resultado}}</ion-label>
             <hr>
           </ion-item>
 </ion-card>

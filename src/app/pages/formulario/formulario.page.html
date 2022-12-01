@@ -1,30 +1,78 @@
-<form [formGroup]="formulario">
-  <ion-label type="floating">nombre</ion-label>
-  <ion-input type="text" 
-             formControlName="nombre"></ion-input>
-   <ion-label type="floating">nombre</ion-label>
-  <ion-input type="text" 
-             formControlName="apellido"></ion-input>
-  <ion-label type="floating">nombre</ion-label>
-   <ion-input type="text" 
-              formControlName="edad"></ion-input>
-   <ion-label type="floating">nombre</ion-label>
-   <ion-input type="text" 
-              formControlName="genero"></ion-input>
-   <ion-label type="floating">nombre</ion-label>
-   <ion-input type="email" 
-             formControlName="correo"></ion-input>
-  <ion-label type="floating">nombre</ion-label>
-  <ion-input type="text" 
-             formControlName="marcaAuto"></ion-input>
-  <ion-label type="floating">nombre</ion-label>
-  <ion-input type="text" 
-             formControlName="modeloAuto"></ion-input>
-  <ion-label type="floating">nombre</ion-label>
-  <ion-input type="text" 
-            formControlName="patenteAuto"></ion-input>
-  <ion-label type="floating">nombre</ion-label>
-  <ion-input type="file" 
-             formControlName="foto"></ion-input>
-  <ion-button (click)="onSubmit()"></ion-button>
-</form>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formulario">
+    <ion-card>
+      <ion-card-title color="primary" class="ion-text-center">
+        <ion-label>
+          <h1>Formulario Conductor</h1>
+        </ion-label>
+      </ion-card-title >
+      <ion-card-content>
+        <ion-item>
+          <ion-label type="floating">Nombre:</ion-label>
+          <ion-input type="text" 
+                     placeholder="Nombre"
+                     formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Apellido:</ion-label>
+          <ion-input type="text" 
+                     placeholder="Apellido"
+                     formControlName="apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Edad:</ion-label>
+          <ion-input type="text" 
+                     placeholder="18"
+                     formControlName="edad"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Género:</ion-label>
+          <ion-input type="text" 
+                     placeholder="M o F"
+                     formControlName="genero"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Correo:</ion-label>
+          <ion-input type="email" 
+                     placeholder="correo@correo.com"
+                     formControlName="correo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Marca auto:</ion-label>
+          <ion-input type="text" 
+                      placeholder="Marca"
+                     formControlName="marcaAuto"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Modelo auto:</ion-label>
+          <ion-input type="text" 
+                      placeholder="Modelo"
+                     formControlName="modeloAuto"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Patente:</ion-label>
+          <ion-input type="text" 
+                      placeholder="GKSN78"
+                     formControlName="patenteAuto"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label type="floating">Imagen:</ion-label>
+          <ion-input type="file" 
+                     formControlName="foto"></ion-input>
+        </ion-item>
+      </ion-card-content>
+      <ion-button color="success" shape="block" (click)="onSubmit()">Enviar</ion-button>
+    </ion-card>
+  </form>
+
+</ion-content>
