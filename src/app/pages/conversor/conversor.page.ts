@@ -11,8 +11,10 @@ export class ConversorPage implements OnInit {
   pageTitle: 'Conversor';
   valordolar: any;
   valoreuro: any;
-  pesos = 0;
-  resultado = 0;
+  pesosuno = 0;
+  pesosdos = 0;
+  resultadodolar = 0;
+  resultadoeuro = 0;
 
   constructor(public httpClient: HttpClient,) {
     this.loadData();
@@ -25,12 +27,12 @@ export class ConversorPage implements OnInit {
     });
   }
     convertirdolar(){
-    this.resultado = this.pesos / this.valordolar.valor;
-    return this.resultado;
+    this.resultadodolar = this.pesosuno / this.valordolar.valor;
+    return this.resultadodolar;
   }
   convertireuro(){
-    this.resultado = this.pesos / this.valoreuro.valor;
-    return this.resultado;
+    this.resultadoeuro = this.pesosdos / this.valoreuro.valor;
+    return this.resultadoeuro;
   }
   ngOnInit() {}
 }

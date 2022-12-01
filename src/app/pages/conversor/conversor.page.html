@@ -20,23 +20,23 @@
             <!--Convertidor de Monedas de Pesos Chilenos a Dolar con Mindicador.cl-->
 
             <ion-label position="stacked" class="ion-padding-bottom cuerpo" style="font-size: 1.4em;">Convertidor de Pesos Chilenos a Dolar</ion-label>
-            <ion-input type="number" [(ngModel)]="pesos" class="cuerpo" style="font-size: 2em;">$</ion-input>
-            <ion-button color="success" 
-                        (click)="convertirdolar()" 
+            <ion-input type="number" [(ngModel)]="pesosuno" class="cuerpo" style="font-size: 2em;">$</ion-input>
+            <ion-button color="success"
+                        (click)="convertirdolar()"
                         class="cuerpo">Convertir</ion-button>
             <ion-label position="stacked"
-                       class="cuerpo">Resultado: ${{resultado}}</ion-label>
+                       class="cuerpo">Resultado: ${{resultadodolar}}</ion-label>
       <hr>
           </ion-item>
         </ion-card>
     <ion-card>
           <ion-item>
           <ion-label position="stacked" class="cuerpo" style="font-size: 1.4em;">Convertidor de Pesos Chilenos a Euro</ion-label>
-            <ion-input type="number" [(ngModel)]="pesos" class="cuerpo" style="font-size: 2em;">$</ion-input>
-            <ion-button color="success" 
+            <ion-input type="number" [(ngModel)]="pesosdos" class="cuerpo" style="font-size: 2em;">$</ion-input>
+            <ion-button color="success"
                         (click)="convertireuro()"
                         class="cuerpo">Convertir</ion-button>
-            <ion-label position="stacked" class="cuerpo">Resultado: €{{resultado}}</ion-label>
+            <ion-label position="stacked" class="cuerpo">Resultado: €{{resultadoeuro}}</ion-label>
             <hr>
           </ion-item>
 </ion-card>
