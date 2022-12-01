@@ -12,17 +12,17 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle class="cuerpo" style="font-size: 1.9em;">
+      <ion-card-subtitle class="cuerpo" style="font-size: 2.1em;">
         <ion-icon name="sync-outline"></ion-icon>
         Conversor de Monedas</ion-card-subtitle>
     </ion-card-header>
-    <div class="ion-padding">Pesos Chilenos / Dolar / Euro</div>
+    <div class="ion-padding">Pesos Chilenos / Dólar / Euro</div>
 </ion-card>
       <ion-card>
     <ion-item>
             <!--Convertidor de Monedas de Pesos Chilenos a Dolar con Mindicador.cl-->
 
-            <ion-label position="stacked" class="ion-padding-bottom cuerpo" style="font-size: 1.4em;">Pesos Chilenos a Dolar</ion-label>
+            <ion-label position="stacked" class="ion-padding-bottom cuerpo" style="font-size: 1.4em;">Pesos Chilenos a Dólar</ion-label>
             <ion-input type="number" [(ngModel)]="pesosuno" class="cuerpo" style="font-size: 2em;">$</ion-input>
             <ion-button color="success"
                         (click)="convertirdolar()"
@@ -45,7 +45,7 @@
     </ion-card>
     <ion-card>
           <ion-item>
-          <ion-label position="stacked" class="cuerpo" style="font-size: 1.4em;">Dolar a Pesos Chilenos</ion-label>
+          <ion-label position="stacked" class="cuerpo" style="font-size: 1.4em;">Dólar a Pesos Chilenos</ion-label>
             <ion-input type="number" [(ngModel)]="dolar" class="cuerpo" style="font-size: 2em;">$</ion-input>
             <ion-button color="success"
                         (click)="convertirdolarpesos()"

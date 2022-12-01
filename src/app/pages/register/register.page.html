@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-buttons slot="start">
-    <ion-back-button color="danger"></ion-back-button>
-  </ion-buttons>
   <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
+    </ion-buttons>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -35,7 +35,6 @@
       </ion-card-content>
 
       <ion-button color="success" shape="block" (click)="register()">Registrarse</ion-button>
-      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
     </ion-card>
   </form>
 
