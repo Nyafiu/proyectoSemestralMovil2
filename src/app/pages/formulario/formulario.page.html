@@ -11,63 +11,63 @@
 
   <form [formGroup]="formulario">
     <ion-card>
-      <ion-card-title color="primary" class="ion-text-center">
-        <ion-label>
-          <h1>Formulario Conductor</h1>
-        </ion-label>
+      <ion-card-title color="primary" class="ion-text-center ion-padding-top">
+      <ion-card-subtitle class="cuerpo" style="font-size: 30px;">
+        <ion-icon name="document-text-outline"></ion-icon>
+        Formulario</ion-card-subtitle>
       </ion-card-title >
       <ion-card-content>
         <ion-item>
           <ion-label type="floating">Nombre:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                      placeholder="Nombre"
                      formControlName="nombre"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Apellido:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                      placeholder="Apellido"
                      formControlName="apellido"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Edad:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                      placeholder="18"
                      formControlName="edad"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Género:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                      placeholder="M o F"
                      formControlName="genero"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Correo:</ion-label>
-          <ion-input type="email" 
+          <ion-input type="email"
                      placeholder="correo@correo.com"
                      formControlName="correo"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Marca auto:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                       placeholder="Marca"
                      formControlName="marcaAuto"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Modelo auto:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                       placeholder="Modelo"
                      formControlName="modeloAuto"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Patente:</ion-label>
-          <ion-input type="text" 
+          <ion-input type="text"
                       placeholder="GKSN78"
                      formControlName="patenteAuto"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label type="floating">Imagen:</ion-label>
-          <ion-input type="file" 
+          <ion-input type="file"
                      formControlName="foto"></ion-input>
         </ion-item>
       </ion-card-content>
