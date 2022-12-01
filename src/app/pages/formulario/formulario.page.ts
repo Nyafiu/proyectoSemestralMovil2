@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./formulario.page.scss'],
 })
 export class FormularioPage implements OnInit {
-  
+
   formulario: FormGroup;
 
   constructor(private userServices: UserService,
@@ -26,17 +26,18 @@ export class FormularioPage implements OnInit {
       modeloAuto: new FormControl(),
       patenteAuto: new FormControl(),
       foto: new FormControl()
-    })
+    });
    }
 
   ngOnInit() {
   }
 
   async onSubmit(){
-    console.log(this.formulario.value)
-    const response = await this.userServices.addPlace(this.formulario.value)
+    console.log(this.formulario.value);
+    const response = await this.userServices.addPlace(this.formulario.value);
     this.showLoading();
     console.log(response);
+    this.formulario.reset();
   }
 
   async showLoading() {
