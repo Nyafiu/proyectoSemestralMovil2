@@ -15,6 +15,10 @@ export class ConversorPage implements OnInit {
   pesosdos = 0;
   resultadodolar = 0;
   resultadoeuro = 0;
+  dolar = 0;
+  resultadodolarpesos = 0;
+  euro = 0;
+  resultadoeuropesos = 0;
 
   constructor(public httpClient: HttpClient,) {
     this.loadData();
@@ -26,13 +30,21 @@ export class ConversorPage implements OnInit {
       this.valoreuro = respuesta['euro'];
     });
   }
-    convertirdolar(){
+  convertirdolar(){
     this.resultadodolar = this.pesosuno / this.valordolar.valor;
     return this.resultadodolar;
   }
   convertireuro(){
     this.resultadoeuro = this.pesosdos / this.valoreuro.valor;
     return this.resultadoeuro;
+  }
+  convertirdolarpesos(){
+    this.resultadodolarpesos = this.dolar * this.valordolar.valor;
+    return this.resultadodolarpesos;
+  }
+  convertireuropesos(){
+    this.resultadoeuropesos = this.euro * this.valoreuro.valor;
+    return this.resultadoeuropesos;
   }
   ngOnInit() {}
 }

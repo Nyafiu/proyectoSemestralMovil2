@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>{{ pageTitle }}</ion-title>
+      <ion-title>Conversor de Monedas</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -12,10 +12,13 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle class="title">Conversor de Monedas</ion-card-subtitle>
-      <ion-card-title class="cuerpo" style="font-size: 1.9em;">Pesos Chilenos -> Dolares / Euros</ion-card-title>
+      <ion-card-subtitle class="cuerpo" style="font-size: 1.9em;">
+        <ion-icon name="sync-outline"></ion-icon>
+        Conversor de Monedas</ion-card-subtitle>
     </ion-card-header>
-
+    <div class="ion-padding">Pesos Chilenos / Dolar / Euro</div>
+</ion-card>
+      <ion-card>
     <ion-item>
             <!--Convertidor de Monedas de Pesos Chilenos a Dolar con Mindicador.cl-->
 
@@ -39,6 +42,28 @@
             <ion-label position="stacked" class="cuerpo">Resultado: €{{resultadoeuro}}</ion-label>
             <hr>
           </ion-item>
-</ion-card>
+    </ion-card>
+    <ion-card>
+          <ion-item>
+          <ion-label position="stacked" class="cuerpo" style="font-size: 1.4em;">Dolar a Pesos Chilenos</ion-label>
+            <ion-input type="number" [(ngModel)]="dolar" class="cuerpo" style="font-size: 2em;">$</ion-input>
+            <ion-button color="success"
+                        (click)="convertirdolarpesos()"
+                        class="cuerpo">Convertir</ion-button>
+            <ion-label position="stacked" class="cuerpo">Resultado: ${{resultadodolarpesos}}</ion-label>
+            <hr>
+          </ion-item>
+    </ion-card>
+        <ion-card>
+          <ion-item>
+          <ion-label position="stacked" class="cuerpo" style="font-size: 1.4em;">Euro a Pesos Chilenos</ion-label>
+            <ion-input type="number" [(ngModel)]="euro" class="cuerpo" style="font-size: 2em;">€</ion-input>
+            <ion-button color="success"
+                        (click)="convertireuropesos()"
+                        class="cuerpo">Convertir</ion-button>
+            <ion-label position="stacked" class="cuerpo">Resultado: ${{resultadoeuropesos}}</ion-label>
+            <hr>
+          </ion-item>
+    </ion-card>
 
 </ion-content>
