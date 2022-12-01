@@ -36,4 +36,6 @@ import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
+
+
 export class AppModule {}
