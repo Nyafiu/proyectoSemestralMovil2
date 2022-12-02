@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { UserService } from './services/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -10,10 +13,16 @@ export class AppComponent {
     { title: 'About', url: '/about', icon: 'people'},
     { title: 'Conversor', url: '/conversor', icon: 'attach'},
     { title: 'Formulario', url: '/formulario', icon: 'clipboard'},
-    { title: 'Cerrar sesión', url: '/', icon: 'log-out'}
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(private userService: UserService,
+    private router: Router,
+    public menuCtrl: MenuController) {}
   
+  async logout(){
+    await this.userService.logOut();
+    this.router.navigateByUrl('/', {replaceUrl: true});
+    this.menuCtrl.close();
+  }
 
 }
