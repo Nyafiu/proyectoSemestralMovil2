@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
+import { collectionData, Firestore } from '@angular/fire/firestore';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { addDoc, collection } from 'firebase/firestore';
 import Place from '../interfaces/place.interfaces';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,9 @@ import Place from '../interfaces/place.interfaces';
 export class UserService {
   formulario: FormGroup;
 
-  constructor(private auth: Auth, private firestore: Firestore) {
+  constructor(private auth: Auth, 
+    private firestore: Firestore,
+    ) {
 
    }
 
@@ -41,6 +44,11 @@ export class UserService {
   addPlace(place: Place){
     const placeRef = collection(this.firestore, 'places');
     return addDoc(placeRef, place)
+  }
+
+  getPlaces(): Observable<Place[]>{
+    const placeRef = collection(this.firestore, 'places');
+    return collectionData(placeRef, {idField: 'id'}) as Observable<Place[]>;
   }
 
 }

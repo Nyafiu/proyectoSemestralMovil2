@@ -6,6 +6,7 @@ import { HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { FormularioPageModule } from '../formulario/formulario.module';
 
 const API_URL = environment.apiUrl;
 const API_KEY = environment.apiKey;
@@ -32,6 +33,16 @@ export class HomePage {
       private router: Router) {
       this.loadData();
     }
+
+  ngOnInit(): void {
+    this.userService.getPlaces().subscribe((places) => {
+      console.log(places);
+    });
+    if (console.log(places[1] == 'F')){
+      this.router.navigateByUrl('/conversor', {replaceUrl: true}); 
+    }
+  }
+
 
   loadData() {
     this.httpClient.get(`${API_URL}/weather?q=${'Santiago'}&appid=${API_KEY}`).subscribe(results => {
