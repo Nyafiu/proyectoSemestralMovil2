@@ -57,7 +57,11 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'page404'
+  },  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   }
+
 
 
 ];
