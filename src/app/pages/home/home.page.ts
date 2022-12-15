@@ -1,12 +1,14 @@
-// @ts-ignore
-// @ts-ignore
-
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-import { FormularioPageModule } from '../formulario/formulario.module';
+import { Camera } from '@capacitor/camera';
+import { CameraResultType, CameraSource } from '@capacitor/camera/dist/esm/definitions';
+import {AlertController, LoadingController, ToastController} from '@ionic/angular';
+import {AvatarService} from '../../services/avatar.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 const API_URL = environment.apiUrl;
 const API_KEY = environment.apiKey;
@@ -17,32 +19,46 @@ const API_KEY = environment.apiKey;
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-
+export class HomePage implements OnInit {
+  profile: any = null;
   pageTitle = 'Home';
 
   weatherTemp: any;
   cityName: any;
-  valordolar: any;
-  valoreuro: any;
-  pesos = 0;
-  resultado = 0;
 
-    constructor(public httpClient: HttpClient,
+    constructor(
+      private authService: AuthService,
+      private avatarService: AvatarService,
+      private alertCtrl: AlertController,
+      private toastCtrl: ToastController,
+      private loadingCtrl: LoadingController,
+      public httpClient: HttpClient,
       private userService: UserService,
       private router: Router) {
       this.loadData();
     }
 
-  ngOnInit(): void {
-    this.userService.getPlaces().subscribe((places) => {
-      console.log(places);
-    });
-    if (console.log(places[1] == 'F')){
-      this.router.navigateByUrl('/conversor', {replaceUrl: true}); 
+    ngOnInit() {
     }
+
+
+
+  async toastPresent(message:string){
+    const toast = await this.toastCtrl.create({
+      message:message,
+      duration:1000,
+    });
+    await toast.present();
   }
 
+  async alertPresent(header:string,message:string){
+    const alert = await this.alertCtrl.create({
+      header:header,
+      message:message,
+      buttons:['OK'],
+    });
+    await alert.present();
+  }
 
   loadData() {
     this.httpClient.get(`${API_URL}/weather?q=${'Santiago'}&appid=${API_KEY}`).subscribe(results => {
@@ -51,21 +67,37 @@ export class HomePage {
       this.cityName = results['name'];
       console.log(this.weatherTemp);
     });
-    this.httpClient.get('https://mindicador.cl/api').subscribe((respuesta) => {
-      console.log(respuesta);
-      this.valordolar = respuesta['dolar'];
-      this.valoreuro = respuesta['euro'];
+    this.avatarService.getUserProfile().subscribe(respuesta => {
+      this.profile = respuesta;
     });
   }
 
+  async uploadAvatar(){
+    const avatar = await Camera.getPhoto({
+      quality:90,
+      allowEditing:false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Camera,
+    });
+    console.log(avatar);
+
+    if(avatar){
+      const loading = await this.loadingCtrl.create();
+      await loading.present();
+      const respuesta = await this.avatarService.uploadAvatar(avatar);
+      await loading.dismiss();
+
+      if(respuesta){
+        this.toastPresent('Avatar uploaded!!!');
+      }
+      else{
+        this.alertPresent('Upload failed','Please try again!!!');
+      }
+    }
+  }
   async logout(){
     await this.userService.logOut();
     this.router.navigateByUrl('/', {replaceUrl: true});
-  }
-
-  convertir(){
-    this.resultado = this.pesos / this.valordolar.valor;
-    return this.resultado;
   }
 
 }
