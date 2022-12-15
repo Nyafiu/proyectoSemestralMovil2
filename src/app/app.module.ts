@@ -15,14 +15,14 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { Capacitor } from '@capacitor/core';
 import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
-    ReactiveFormsModule, FormsModule, AngularFirestoreModule,
-    provideFirestore(() => getFirestore()),
+    ReactiveFormsModule, FormsModule,
+
     provideStorage(() => getStorage()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => {
