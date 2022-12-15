@@ -27,6 +27,7 @@ export class HomePage {
   valoreuro: any;
   pesos = 0;
   resultado = 0;
+  uid: string = null;
 
     constructor(public httpClient: HttpClient,
       private userService: UserService,
@@ -34,15 +35,30 @@ export class HomePage {
       this.loadData();
     }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    /*
     this.userService.getPlaces().subscribe((places) => {
       console.log(places);
-    });
-    if (console.log(places[1] == 'F')){
-      this.router.navigateByUrl('/conversor', {replaceUrl: true}); 
+    });*/
+    this.getUid();
+    
+  }
+
+  async getUid() {
+    const uid = await this.userService.getUid();
+    if (uid) {
+      this.uid = uid;
+      console.log('uid = ',this.uid);
+    } else {
+      console.log('No existe uid');
     }
   }
 
+  /*
+  getInfoUser() {
+    const path = 'Places'
+  }
+  */
 
   loadData() {
     this.httpClient.get(`${API_URL}/weather?q=${'Santiago'}&appid=${API_KEY}`).subscribe(results => {
