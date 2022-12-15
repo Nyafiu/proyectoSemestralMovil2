@@ -20,7 +20,24 @@
       <ion-card-subtitle class="cuerpo" style="font-size: 25px;">
         <ion-icon name="car-outline"></ion-icon>
         Bienvenido</ion-card-subtitle>
+        <br>
+                <ion-item>
+                  <div class="avatar" style="margin: auto">
+                    <ion-avatar (click)="uploadAvatar()">
+                      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+                      <ng-template #placeholder_avatar>
+                        <div class="no-avatar">
+                          <ion-avatar>
+                            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                          </ion-avatar>
+                        </div>
+                      </ng-template>
+                    </ion-avatar>
+                    <br>
+                  </div>
+        </ion-item>
       </ion-card-title>
+      <br>
       <ion-card-content>
         <ion-item>
           <span class="fuente" style="font-size: 26px">
@@ -29,16 +46,6 @@
           </span>
           <ion-icon name="location"></ion-icon>
           <span class="fuente" style="font-size: 26px">{{cityName}}</span>
-        </ion-item>
-        <ion-item>
-          <span>
-            <p class="fuente">El dolar actual es: ${{valordolar?.valor}}</p>
-          </span>
-        </ion-item>
-        <ion-item>
-          <span>
-            <p class="fuente">El euro actual es: €{{valoreuro?.valor}}</p>
-          </span>
         </ion-item>
         <ion-card-title><img src="../../../assets/img/auto.png" alt=""></ion-card-title>
       </ion-card-content>

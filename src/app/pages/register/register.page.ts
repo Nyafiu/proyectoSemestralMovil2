@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { LoadingController, MenuController, ToastController } from '@ionic/angular';
+import {AlertController, LoadingController, MenuController, ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +17,7 @@ export class RegisterPage implements OnInit {
     private userService: UserService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private loadingCtrl:LoadingController,
+    private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
   ) { }
 
@@ -47,7 +47,6 @@ export class RegisterPage implements OnInit {
       this.presentToast('Falló el registro. Intente nuevamente');
     }
   }
-
   async presentToast(message:string, duration?:number) {
     const toast = await this.toastCtrl.create({
       message: message,
@@ -55,7 +54,6 @@ export class RegisterPage implements OnInit {
       position: 'bottom'
     });
     await toast.present();
-    
   }
 
   async showLoading() {
