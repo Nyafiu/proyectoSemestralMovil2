@@ -8,4 +8,5 @@ export default interface Place{
     modeloAuto: string;
     patenteAuto: string;
     foto?: File; 
+    uid: string;
 }

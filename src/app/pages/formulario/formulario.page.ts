@@ -29,7 +29,7 @@ export class FormularioPage implements OnInit {
       modeloAuto: new FormControl(),
       patenteAuto: new FormControl(),
       foto: new FormControl(),
-      uid: new FormControl(console.log())
+      uid: new FormControl(this.uid)
     });
    }
 
