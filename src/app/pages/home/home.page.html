@@ -19,7 +19,7 @@
       <ion-card-title color="primary" class="ion-text-center ion-padding-top">
       <ion-card-subtitle class="cuerpo" style="font-size: 25px;">
         <ion-icon name="car-outline"></ion-icon>
-        Bienvenido</ion-card-subtitle>
+        Bienvenido {{authService.currentUsername}} </ion-card-subtitle>
         <br>
                 <ion-item>
                   <div class="avatar" style="margin: auto">
@@ -47,8 +47,18 @@
           <ion-icon name="location"></ion-icon>
           <span class="fuente" style="font-size: 26px">{{cityName}}</span>
         </ion-item>
-        <ion-card-title><img src="../../../assets/img/auto.png" alt=""></ion-card-title>
       </ion-card-content>
     </ion-card>
+
+    <ion-content>
+<ion-card>
+
+  <p class="set-parrafo">Seleccione una modalidad de viaje</p>
+
+  <ion-button class="setBConductor" (click)="navegar(['/conductor'])" size="large" expand="block">CONDUCTOR</ion-button>
+  <ion-button (click)="navegar(['/pasajero'])" size="large" expand="block">PASAJERO</ion-button>
+</ion-card>
+</ion-content>
+
 
   </ion-content>

@@ -1,0 +1,9 @@
+<ion-toolbar>
+  <ion-icon class="set-icon-exit slot" slot="end" (click)="salirSesion()" name="exit-outline"></ion-icon>
+  <app-header></app-header>
+</ion-toolbar>
+
+<ion-content>
+  <app-maps></app-maps>
+  <ion-button (click)="navegar(['/crear-viaje'])" class="setButton" size="large" expand="block">REGISTRAR VIAJE</ion-button> 
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ pageTitle }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+  <ion-card *ngFor="let dato of viaje">
+
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar slot="end">
+          <img alt="imagen" [src]="dato.imagen">
+        </ion-avatar>
+        <ion-label>
+          <ion-card-subtitle color="dark">Destino: {{dato.destino}}</ion-card-subtitle>
+         <ion-card-subtitle color="dark" >{{dato.conductor}}</ion-card-subtitle>
+        </ion-label>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label color="dark">Destino: {{dato.destino}}</ion-label><br>
+      <ion-label color="dark">Patente: {{dato.patente}}</ion-label><br>
+      <ion-label color="dark">Valor del Viaje: {{dato.valor}}</ion-label><br>
+      <br>
+      <ion-label>Descripcion: {{dato.resumen}}</ion-label>
+    </ion-card-content>
+
+    <ion-button class="setButton" (click)="reservarViaje()" size="large" expand="block">Reservar Viaje</ion-button>
+  </ion-card>
+
+</ion-content>

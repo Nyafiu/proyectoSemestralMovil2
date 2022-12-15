@@ -45,7 +45,9 @@ export class HomePage implements OnInit {
       console.log(places);
     });*/
     this.getUid();
-    
+  }
+  navegar(page){
+    this.router.navigate(page);
   }
 
   async getUid() {

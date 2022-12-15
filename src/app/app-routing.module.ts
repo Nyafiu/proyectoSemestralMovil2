@@ -36,6 +36,14 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin)
   },
   {
+    path: 'conductor',
+    loadChildren: () => import('./pages/conductor/conductor.module').then( m => m.ConductorPageModule),
+  },
+  {
+    path: 'pasajero',
+    loadChildren: () => import('./pages/pasajero/pasajero.module').then( m => m.PasajeroPageModule),
+  },
+  {
     path: 'page404',
     loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
   },
@@ -62,7 +70,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'page404'
   },
-  
+
 
 ];
 

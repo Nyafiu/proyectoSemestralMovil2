@@ -14,12 +14,14 @@ export class AppComponent {
     { title: 'Conversor', url: '/conversor', icon: 'attach'},
     { title: 'Formulario', url: '/formulario', icon: 'clipboard'},
     { title: 'Perfil', url: '/perfil', icon: 'person'},
+    { title: 'Conductor', url: '/conductor', icon: 'car'},
+    { title: 'Pasajero', url: '/pasajero', icon: 'people'},
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private userService: UserService,
     private router: Router,
     public menuCtrl: MenuController) {}
-  
+
   async logout(){
     await this.userService.logOut();
     this.router.navigateByUrl('/', {replaceUrl: true});
