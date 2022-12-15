@@ -53,16 +53,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule),
     ...canActivate(redirectUnauthorizedToLogin)
   },
-
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
+  },
   {
     path: '**',
     redirectTo: 'page404'
-  },  {
-    path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
-  }
-
-
+  },
+  
 
 ];
 

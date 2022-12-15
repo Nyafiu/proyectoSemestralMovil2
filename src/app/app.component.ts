@@ -13,6 +13,7 @@ export class AppComponent {
     { title: 'About', url: '/about', icon: 'people'},
     { title: 'Conversor', url: '/conversor', icon: 'attach'},
     { title: 'Formulario', url: '/formulario', icon: 'clipboard'},
+    { title: 'Perfil', url: '/perfil', icon: 'person'},
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private userService: UserService,
