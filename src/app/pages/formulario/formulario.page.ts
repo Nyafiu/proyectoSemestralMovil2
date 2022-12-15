@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { UserService } from 'src/app/services/user.service';
+import { Auth } from '@angular/fire/auth';
 
 
 
@@ -14,11 +15,12 @@ import { UserService } from 'src/app/services/user.service';
 export class FormularioPage implements OnInit {
 
   formulario: FormGroup;
-  uid: string = null;
+  uid: string;
 
   constructor(private userServices: UserService,
     private loadingCtrl: LoadingController,
-    private router: Router) {
+    private router: Router,
+    private auth: Auth) {
     this.formulario = new FormGroup({
       nombre: new FormControl(),
       apellido: new FormControl(),
@@ -29,9 +31,9 @@ export class FormularioPage implements OnInit {
       modeloAuto: new FormControl(),
       patenteAuto: new FormControl(),
       foto: new FormControl(),
-      uid: new FormControl(this.uid)
+      uid: new FormControl(this.auth.currentUser.uid)
     });
-   }
+  }
 
   async ngOnInit() {
     this.getUid();
