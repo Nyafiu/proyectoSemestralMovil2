@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-conversor',
@@ -33,6 +34,7 @@ export class ConversorPage implements OnInit {
   convertirdolar(){
     this.resultadodolar = this.pesosuno / this.valordolar.valor;
     return this.resultadodolar;
+
   }
   convertireuro(){
     this.resultadoeuro = this.pesosdos / this.valoreuro.valor;

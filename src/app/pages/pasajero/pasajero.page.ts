@@ -16,10 +16,7 @@ export class PasajeroPage implements OnInit {
 
   constructor(private router:Router, public alertController: AlertController, private dataService: DataService) { }
 
-  //Cargar el dato de la API al crear la PAGE de PASAJERO
   ngOnInit() {
-    
-    //Metodo para llamar el arreglo de la API
     this.dataService.getAPI().subscribe(resp =>
       {
         console.log(resp);
@@ -30,8 +27,6 @@ export class PasajeroPage implements OnInit {
   navegar(page){
     this.router.navigate(page);
   }
-  
-  //Metodo para salir de la sesión, se implementa en botón en HTML
   async salirSesion(){
     const alert = await this.alertController.create({
       message: '¿Seguro deseas salir?',
@@ -45,8 +40,6 @@ export class PasajeroPage implements OnInit {
     });
     await alert.present();
   }
-
-  //Alert para mostrar un mensaje en pantalla al presionar el botón reservar viaje
   async reservarViaje(){
     const alert = await this.alertController.create({
       message: 'Su viaje fue reservado con exito',
