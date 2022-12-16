@@ -35,6 +35,9 @@ export class ConductorPage{
     console.log(this.marker);
     this.loadMap();
   }
+  navegar(page){
+    this.router.navigate(page);
+  }
   segmentChanged(ev) {
     console.log('segment change', ev.target.value);
     this.slider.slideTo(ev.target.value);
@@ -55,7 +58,6 @@ export class ConductorPage{
         this.places = data;
       });
     }
-
   }
   onClickPickAddress(lat, lng) {
     this.places = [];
@@ -147,8 +149,5 @@ export class ConductorPage{
     setTimeout(() =>
     { this.map.invalidateSize();}, 500 );
 
-  }
-    navegar(page){
-    this.router.navigate(page);
   }
 }

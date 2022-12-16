@@ -53,6 +53,10 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin)
   },
   {
+    path: 'crear-viaje',
+    loadChildren: () => import('./pages/crear-viaje/crear-viaje.module').then( m => m.CrearViajePageModule),
+  },
+  {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },

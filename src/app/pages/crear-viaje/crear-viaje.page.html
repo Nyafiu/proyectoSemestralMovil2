@@ -1,10 +1,14 @@
-<ion-toolbar>
-  <ion-icon class="set-icon-exit slot" slot="end" (click)="salirSesion()" name="exit-outline"></ion-icon>
-  <app-header></app-header>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <app-logo></app-logo> 
+  <app-logo></app-logo>
 
   <p class="set-parrafo">Ingrese los datos solicitados para registrar su viaje</p>
 
@@ -15,12 +19,6 @@
       <ion-item>
         <ion-label position="floating">Destino</ion-label>
         <ion-input  required placeholder="Destino final" name="destino" [(ngModel)]="datos.destino" type="text" clear-input='true' [ngModelOptions]="{standalone: true}">
-        </ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label position="floating">Ruta</ion-label>
-        <ion-input  required placeholder="Ruta del viaje" name="ruta" [(ngModel)]="datos.ruta" type="text" clear-input='true' [ngModelOptions]="{standalone: true}">
         </ion-input>
       </ion-item>
 
@@ -42,7 +40,7 @@
       </ion-item>
 
       <ion-button (click)="validarFormulario()" type="submit" expand="block" [disabled]="formulario.invalid">
-        GENERAR VIAJE
+        Inscribir Viaje
       </ion-button>
     </form>
   </div>
