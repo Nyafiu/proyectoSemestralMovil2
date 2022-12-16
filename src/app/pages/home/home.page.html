@@ -51,11 +51,11 @@
 
 <ion-card>
 
-  <p class="ion-text-center">Selecciona modo de viaje: </p>
+  <p class="ion-text-center" style="font-size: 1.3em;">Selecciona modo de viaje: </p>
 
-  <ion-button class="setBConductor" (click)="navegar(['/conductor'])" size="large" expand="block" style="margin-right: 20px; margin-left: 20px">
+  <ion-button color="success" class="setBConductor"  [routerLink]="['/conductor']" size="large" expand="block" style="margin-right: 20px; margin-left: 20px">
     <ion-icon name="car-outline"></ion-icon>  Conductor</ion-button>
-  <ion-button (click)="navegar(['/pasajero'])" size="large" expand="block" style="margin-right: 20px; margin-left: 20px">
+  <ion-button color="success" [routerLink]="['/pasajero']" size="large" expand="block" style="margin-right: 20px; margin-left: 20px; margin-bottom: 20px;">
     <ion-icon name="people-outline"></ion-icon>  Pasajero</ion-button>
 </ion-card>
 

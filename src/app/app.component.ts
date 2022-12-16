@@ -13,7 +13,6 @@ export class AppComponent {
     { title: 'About', url: '/about', icon: 'people'},
     { title: 'Conversor', url: '/conversor', icon: 'attach'},
     { title: 'Formulario', url: '/formulario', icon: 'clipboard'},
-    { title: 'Perfil', url: '/perfil', icon: 'person'},
     { title: 'Conductor', url: '/conductor', icon: 'car'},
     { title: 'Pasajero', url: '/pasajero', icon: 'people'},
   ];

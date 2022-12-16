@@ -1,11 +1,11 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Conductor</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Conductor</ion-title>
+  </ion-toolbar>
+</ion-header>
 
   <ion-content [fullscreen]="true">
 
@@ -19,6 +19,6 @@
       </ion-list>
       <div id="map"></div>
 
-    <ion-button (click)="navegar(['crear-viaje'])" class="setButton" size="large" expand="block">
-      <ion-icon name="add-circle-outline"></ion-icon>: Registro de Viaje</ion-button>
+    <ion-button color="success" [routerLink]="['/crear-viaje']" class="setButton" size="large" expand="block">
+      <ion-icon name="add-circle-outline"></ion-icon> Registrar nuevo viaje</ion-button>
 </ion-content>

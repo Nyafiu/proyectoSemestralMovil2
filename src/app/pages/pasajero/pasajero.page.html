@@ -1,18 +1,14 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>{{ pageTitle }}</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="logout()">
-          <ion-icon slot="icon-only" name="log-out"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-size: large;">Viajes disponibles</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content [fullscreen]="true">
+<ion-content>
+
   <ion-card *ngFor="let dato of viaje">
 
     <ion-card-header>
@@ -21,21 +17,21 @@
           <img alt="imagen" [src]="dato.imagen">
         </ion-avatar>
         <ion-label>
-          <ion-card-subtitle color="dark">Destino: {{dato.destino}}</ion-card-subtitle>
-         <ion-card-subtitle color="dark" >{{dato.conductor}}</ion-card-subtitle>
+          <ion-card-subtitle style="font-size: medium;" color="dark">Destino: {{dato.destino}}</ion-card-subtitle>
+         <ion-card-subtitle style="font-size: medium;" color="dark" >{{dato.conductor}}</ion-card-subtitle>
         </ion-label>
       </ion-item>
     </ion-card-header>
 
-    <ion-card-content>
-      <ion-label color="dark">Destino: {{dato.destino}}</ion-label><br>
-      <ion-label color="dark">Patente: {{dato.patente}}</ion-label><br>
-      <ion-label color="dark">Valor del Viaje: {{dato.valor}}</ion-label><br>
+    <ion-card-content style="text-align: center;">
+      <ion-label style="font-size: 1.2em;" color="dark">Destino: {{dato.destino}}</ion-label><br>
+      <ion-label style="font-size: 1.2em;" color="dark">Patente: {{dato.patente}}</ion-label><br>
+      <ion-label style="font-size: 1.2em;" color="dark">Valor del Viaje: {{dato.valor}}</ion-label><br>
       <br>
-      <ion-label>Descripcion: {{dato.resumen}}</ion-label>
+      <ion-label>Descripción: {{dato.resumen}}</ion-label>
     </ion-card-content>
 
-    <ion-button class="setButton" (click)="reservarViaje()" size="large" expand="block">Reservar Viaje</ion-button>
+    <ion-button style="font-size: 1.3em;" color="success" class="setButton" (click)="reservarViaje()" size="large" expand="block">Reservar Viaje</ion-button>
   </ion-card>
 
 </ion-content>

@@ -47,7 +47,7 @@ export class CrearViajePage implements OnInit {
     localStorage.setItem('valor',this.datos.valor);
     localStorage.setItem('descripcion',this.datos.descripcion);
     const alert = await this.alertController.create({
-      message: 'Viaje Inscribido con exito',
+      message: 'El viaje se registró correctamente',
       buttons: [{
         text: 'Aceptar',
         handler: () => {this.router.navigate(['/conductor']),
