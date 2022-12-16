@@ -1,9 +1,24 @@
-<ion-toolbar>
-  <ion-icon class="set-icon-exit slot" slot="end" (click)="salirSesion()" name="exit-outline"></ion-icon>
-  <app-header></app-header>
-</ion-toolbar>
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Conductor</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
-  <app-maps></app-maps>
-  <ion-button (click)="navegar(['/crear-viaje'])" class="setButton" size="large" expand="block">REGISTRAR VIAJE</ion-button> 
+  <ion-content [fullscreen]="true">
+
+      <ion-searchbar placeholder="Busca Aqui" (ionInput)="search()" slot="fixed" [(ngModel)]="searchKey"></ion-searchbar>
+      <ion-list *ngIf="places.length > 0" class="autocomplete-address-list common-bg-light" lines="full">
+        <div class="list autolist">
+          <ion-item tappable (click)="onClickPickAddress(place.lat, place.lon)" class="item" *ngFor="let place of places">
+            <ion-icon name="location-outline" slot="start"></ion-icon>
+            {{place.display_name}}</ion-item>
+        </div>
+      </ion-list>
+      <div id="map"></div>
+
+    <ion-button (click)="navegar(['/crear-viaje'])" class="setButton" size="large" expand="block">
+      <ion-icon name="add-circle-outline"></ion-icon>: Registro de Viaje</ion-button>
 </ion-content>
